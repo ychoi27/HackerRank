@@ -1,0 +1,61 @@
+import java.awt.Point;
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Botsavesprincess {
+
+	static void displayPathtoPrincess(int n, String[] grid) {
+		Point P = new Point();
+		Point M = new Point();
+
+		for (int i = 0; i < n; i++) {
+			String Str = grid[i];
+
+			if (Str.indexOf('p') != -1) {
+				P.x = i;
+				P.y = Str.indexOf('p');
+			}
+			if (Str.indexOf('m') != -1) {
+				M.x = i;
+				M.y = Str.indexOf('m');
+			}
+		}
+		while(P.x != M.x || P.y!=M.y){
+			compareTo(P, M);
+	}
+	}
+	static void compareTo(Point M, Point P) {
+			if (P.x < M.x) {
+				P.x++;
+				System.out.println("DOWN");
+			} else if (P.x > M.x) {
+				P.x--;
+				System.out.println("UP");
+			} else if (P.y < M.y) {
+				P.y++;
+				System.out.println("RIGHT");
+			
+			} else if (P.y > M.y){
+				P.y--;
+				System.out.println("LEFT");
+			} else{
+				
+			}		
+		}				
+	
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int m;
+		m = in.nextInt();
+		String grid[] = new String[m];
+		for (int i = 0; i < m; i++) {
+			grid[i] = in.next();
+		}
+
+		displayPathtoPrincess(m, grid);
+	}
+}
