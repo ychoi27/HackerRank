@@ -11,7 +11,7 @@ public class The_Maximum_Subarray {
 					MaxSum+=list[i];
 				}
 			}
-			if(MaxSum==0){
+			if(MaxSum==0){                 //I don'like this part for the case of all ints are negative value.
 				Arrays.sort(list);
 			MaxSum=list[list.length-1];
 			}
