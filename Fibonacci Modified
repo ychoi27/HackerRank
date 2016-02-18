@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Fibonacci_Modified {
+
+	static BigInteger fibonacci(int a, int b, int n) {
+		if (n == 1) {
+			return BigInteger.valueOf(a);
+		} else if (n == 2) {
+			return BigInteger.valueOf(b);
+		} else {
+				BigInteger T2=BigInteger.ZERO;
+				BigInteger T1=BigInteger.ZERO;
+				T2=fibonacci(a,b,n-1).pow(2);
+				T1=fibonacci(a,b,n-2);
+			return T1.add(T2);
+			}
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+			int N1 = input.nextInt();
+			int N2 = input.nextInt();
+			int N = input.nextInt();
+	
+			BigInteger bd= fibonacci(N1,N2,N);
+		System.out.println(bd);
+	}
+}
