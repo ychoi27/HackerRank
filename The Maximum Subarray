@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+public class The_Maximum_Subarray {
+	public static int maxSum(int[] list) {
+			int MaxSum=0;
+			for(int i=0; i<list.length;i++){
+				if(list[i]>0){
+					MaxSum+=list[i];
+				}
+			}
+			if(MaxSum==0){
+				Arrays.sort(list);
+			MaxSum=list[list.length-1];
+			}
+			
+		return MaxSum;
+	}
+	public static int continousSum(int[] list) {
+		int currentSum=0;
+		int MaxSum=list[0];
+		for(int i=0; i<list.length;i++){
+			currentSum+=list[i];
+			if(currentSum > MaxSum){
+				MaxSum=currentSum;
+			}
+			if(currentSum<0){
+				currentSum=0;
+			}
+		}
+	return MaxSum;
+}
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int T = input.nextInt();
+		for (int i = 0; i < T; i++) {
+			int N = input.nextInt();
+			int[] list = new int[N];
+			for (int k = 0; k < N; k++) {
+				list[k] = input.nextInt();
+			}
+			System.out.println(continousSum(list) + " " + maxSum(list));
+
+		}
+	}
+
+}
